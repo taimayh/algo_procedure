@@ -1,0 +1,34 @@
+ALGORITHM solutoin_2
+VAR
+    somme_k:INTEGER:=0;
+    somme_nonk:INTEGER:=0;
+   htab: HASH_TABLE<INTEGER,INTEGER>;
+   i: INTEGER;
+   tab1: ARRAY_OF iNTEGER;
+ tab: ARRAY_OF iNTEGER:=[];
+   tab2 : ARRAY_OF INTEGER[];
+
+BEGIN
+    FOR i FROM 0 TO tab1.length DO
+        htab.insert(tab1[i],1);
+
+    END_FOR
+    FOR i FROM 0 TO tab2.length DO
+        IF ( htab.lookup(tab2[i])) THEN
+             htab.insert(tab2[i],2);
+        ELSE
+           htab.insert(tab2[i],1);
+        END_IF
+        
+    END_FOR
+tab:=htab.getKeys()
+FOR i FROM 0 TO tab.length STEP step  DO
+    
+    IF (htab.get(tab[i])=1) THEN
+        somme_nonk:=somme_nonk+tab[i];
+    ELSE
+        somme_k:=somme_k+tab[i];
+    END_IF
+END_FOR
+
+END

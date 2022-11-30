@@ -1,0 +1,42 @@
+ALGORITHM tableau
+VAR
+tab1: ARRAY_OF iNTEGER;
+i:INTEGER;
+tab2 : ARRAY_OF INTEGER[];
+j:INTEGER;
+somme_k:INTEGER:=0;
+somme_nonk:INTEGER:=0;
+exist:BOOLEAN:= false
+BEGIN
+ FOR i FROM 0 TO tab1.length  DO
+ exist:=false
+    FOR j FROM 0 TO tab2.length  DO
+        IF ( tab1[i]=tab2[j] ) THEN
+            exist:=true
+        END_IF
+    END_FOR
+
+    IF (exist=false) THEN
+        somme_nonk:= somme_nonk + tab1[i];
+    END_IF
+    somme_k:= somme_k + tab1[i];
+ END_FOR
+
+
+ FOR j FROM 0 TO tab2.length  DO
+ exist:=false
+    FOR i FROM 0 TO tab1.length  DO
+        IF ( tab1[i]=tab2[j] ) THEN
+            exist:=true
+        END_IF
+    END_FOR
+
+    IF (exist=false) THEN
+        somme_nonk:= somme_nonk + tab2[2];
+    END_IF
+    somme_k:= somme_k + tab2[j];
+ END_FOR
+
+      
+
+END
